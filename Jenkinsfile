@@ -43,8 +43,8 @@ pipeline {
                      unstash(name: 'compiled-results')
                      sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F prism.py'"
                  }
-                 
-                sh "docker build -f ${WORKSPACE}/Dockerfile -t localhost:5000/prism ."
+
+                sh "docker build -t localhost:5000/prism ."
 
                 sh "docker push localhost:5000/prism"
              }
@@ -52,7 +52,9 @@ pipeline {
                  success{
                      archiveArtifacts "${env.BUILD_ID}/sources/dist/prism"
 
-                     sh "kubectl apply -f deployment.yaml"
+                     sh "kubectl create --filename deployment.yaml"
+
+                     sh "minikube image load localhost:5000/prism:latest"
                  }
              }
          }
