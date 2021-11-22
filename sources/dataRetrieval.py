@@ -56,7 +56,7 @@ def retrieveDatafromHtmlFiles(schema="public"):
                 except Exception as e:
                     print("Parsing Failed for {}".format(fileName))
                     print(e)
-                    traceback.print_exc()
+                    print(traceback.print_exc())
                     os.rename(filePath + fileName, filePath + "Errored/" + fileName)
                     return False
 
@@ -77,7 +77,7 @@ def retrieveDatafromErrorFiles(schema="public"):
                 except Exception as e:
                     print("Parsing Failed for {}".format(fileName))
                     print(e)
-                    traceback.print_exc()
+                    print(traceback.print_exc())
                     os.rename(filePath + fileName, filePath + "Errored/" + fileName)
                     return False
 
@@ -93,13 +93,12 @@ def retrieveDatafromVisitFiles(schema="public"):
                 try:
                     records = parseRecordsFromVisitFile(filePath, fileName, hospital=schema)
                     if records:
-                        print(os.getcwd())
                         os.rename(filePath + fileName, filePath + "Processed/" + fileName)
                         return True
                 except Exception as e:
                     print("Parsing Failed for {}".format(fileName))
                     print(e)
-                    traceback.print_exc()
+                    print(traceback.print_exc())
                     os.rename(filePath + fileName, filePath + "Errored/" + fileName)
                     return False
 
