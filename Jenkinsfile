@@ -22,10 +22,6 @@ pipeline {
                  }
              }
              steps {
-                 sh 'python -m venv virt'
-
-                 sh '. virt/bin/activate'
-
                  sh 'pip install -r requirements.txt'
 
                  sh 'python sources/tests.py'
@@ -43,8 +39,6 @@ pipeline {
                  IMAGE = 'cdrx/pyinstaller-linux:python3'
              }
              steps{
-                 sh '. virt/bin/activate'
-
                  dir(path: env.BUILD_ID) {
                      unstash(name: 'compiled-results')
                      sh "pyinstaller -F prism.py"
