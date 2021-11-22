@@ -2,11 +2,10 @@ import os
 from pathlib import Path
 
 
-DIRNAME = Path().absolute()
-HTML_FILE_DIR = os.path.join(DIRNAME, '/Prism-files/{hospital}/Html Files/')
-ERROR_FILE_DIR = os.path.join(DIRNAME, '/Prism-files/{hospital}/Error Files/')
-VISIT_FILE_DIR = os.path.join(DIRNAME, '/Prism-files/{hospital}/Visits/')
-END_RESULT_FILE_DIR = os.path.join(DIRNAME, '/Prism-files/{hospital}/End Result Files/')
+HTML_FILE_DIR = Path().absolute() + '/Prism-files/{hospital}/Html Files/')
+ERROR_FILE_DIR = Path().absolute() + '/Prism-files/{hospital}/Error Files/')
+VISIT_FILE_DIR = Path().absolute() + '/Prism-files/{hospital}/Visits/')
+END_RESULT_FILE_DIR = Path().absolute() + '/Prism-files/{hospital}/End Result Files/')
 
 VISIT_COLUMNS = {
     'interfaith' : ['AccountNumber', 'Admit/ServiceDt', 'Discharge/ServiceDt', 'PrimaryInsuranceDesc', 'AccountType', 'BarStatus'],
