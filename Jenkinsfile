@@ -5,15 +5,10 @@ pipeline {
              agent { 
                  docker {
                      image 'python:3.8-slim-buster'
+                     args '-u root'
                  }
              }
              steps {
-                 sh 'virtualenv virt'
-
-                 sh '. virt/bin/activate'
-
-                 sh 'pip install -r requirements.txt'
-
                  sh 'python -m py_compile sources/prism.py'
 
                  stash(name: 'compiled-results', includes: 'sources/*.py*')
@@ -27,7 +22,11 @@ pipeline {
                  }
              }
              steps {
+                 sh 'python -m venv virt'
+
                  sh '. virt/bin/activate'
+
+                 sh 'pip install -r requirements.txt'
 
                  sh 'python sources/tests.py'
              }
