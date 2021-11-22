@@ -51,6 +51,8 @@ def retrieveDatafromHtmlFiles(schema="public"):
                 try:
                     records = parseRecordsFromHtmlFile(filePath, fileName)
                     if records:
+                        print(filePath)
+                        print(fileName)
                         os.rename(filePath + fileName, filePath + "Processed/" + fileName)
                         return True
                 except Exception as e:
