@@ -44,6 +44,8 @@ pipeline {
                      sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F prism.py'"
                  }
 
+                sh "docker run -d -p 5000:5000 --restart=always --name registry registry:2"
+
                 sh "docker build -t localhost:5000/prism ."
 
                 sh "docker push localhost:5000/prism"
