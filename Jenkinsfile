@@ -21,8 +21,6 @@ pipeline {
                  }
              }
              steps {
-                 sh 'apt-get install -y libpq5'
-
                  sh 'pip install -r requirements.txt'
 
                  sh 'python sources/tests.py'
