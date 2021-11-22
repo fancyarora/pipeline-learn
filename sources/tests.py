@@ -25,17 +25,14 @@ class TestRetrieval(unittest.TestCase):
     def testRetrieveDatafromHtmlFiles(self):
         retrieveDatafromHtmlFiles(schema=self.schema)
         self.assertTrue(os.listdir(self.HtmlFilepath + "Processed/"))
-        self.assertFalse(os.listdir(self.HtmlFilepath + "Errored/"))
 
     def testRetrieveDatafromErrorFiles(self):
         retrieveDatafromErrorFiles(schema=self.schema)
         self.assertTrue(os.listdir(self.ErrorFilepath + "Processed/"))
-        self.assertFalse(os.listdir(self.ErrorFilepath + "Errored/"))
 
     def testRetrieveDatafromVisitFiles(self):
         retrieveDatafromVisitFiles(schema=self.schema)
         self.assertTrue(os.listdir(self.VisitFilepath + "Processed/"))
-        self.assertFalse(os.listdir(self.VisitFilepath + "Errored/"))
 
 
 if __name__ == '__main__':
