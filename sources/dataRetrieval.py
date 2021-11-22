@@ -1,4 +1,5 @@
 import os
+import traceback
 import pandas as pd
 from models import Sparcs, Error, Visit
 from config import HTML_FILE_DIR, ERROR_FILE_DIR, VISIT_FILE_DIR, VISIT_COLUMNS
@@ -55,6 +56,7 @@ def retrieveDatafromHtmlFiles(schema="public"):
                 except Exception as e:
                     print("Parsing Failed for {}".format(fileName))
                     print(e)
+                    traceback.print_exc()
                     os.rename(filePath + fileName, filePath + "Errored/" + fileName)
                     return False
 
@@ -75,6 +77,7 @@ def retrieveDatafromErrorFiles(schema="public"):
                 except Exception as e:
                     print("Parsing Failed for {}".format(fileName))
                     print(e)
+                    traceback.print_exc()
                     os.rename(filePath + fileName, filePath + "Errored/" + fileName)
                     return False
 
@@ -96,6 +99,7 @@ def retrieveDatafromVisitFiles(schema="public"):
                 except Exception as e:
                     print("Parsing Failed for {}".format(fileName))
                     print(e)
+                    traceback.print_exc()
                     os.rename(filePath + fileName, filePath + "Errored/" + fileName)
                     return False
 
