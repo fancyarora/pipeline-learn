@@ -3,10 +3,11 @@ from pathlib import Path
 
 print("File      Path:", Path(__file__).absolute())
 print("Directory Path:", Path().absolute()) # Directory of current working directory, not __file__ 
-HTML_FILE_DIR = Path().absolute() + '/Prism-files/{hospital}/Html Files/'
-ERROR_FILE_DIR = Path().absolute() + '/Prism-files/{hospital}/Error Files/'
-VISIT_FILE_DIR = Path().absolute() + '/Prism-files/{hospital}/Visits/'
-END_RESULT_FILE_DIR = Path().absolute() + '/Prism-files/{hospital}/End Result Files/'
+DIRNAME = str(Path().absolute())
+HTML_FILE_DIR = DIRNAME + '/Prism-files/{hospital}/Html Files/'
+ERROR_FILE_DIR = DIRNAME + '/Prism-files/{hospital}/Error Files/'
+VISIT_FILE_DIR = DIRNAME + '/Prism-files/{hospital}/Visits/'
+END_RESULT_FILE_DIR = DIRNAME + '/Prism-files/{hospital}/End Result Files/'
 
 VISIT_COLUMNS = {
     'interfaith' : ['AccountNumber', 'Admit/ServiceDt', 'Discharge/ServiceDt', 'PrimaryInsuranceDesc', 'AccountType', 'BarStatus'],
