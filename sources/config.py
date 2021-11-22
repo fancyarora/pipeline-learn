@@ -1,7 +1,7 @@
-HTML_FILE_DIR = 'C:\\Users\\fancy\\OneDrive\\Documents\\Pipeline learn\\Prism files\\{hospital}\\Html Files\\'
-ERROR_FILE_DIR = 'C:\\Users\\fancy\\OneDrive\\Documents\\Pipeline learn\\Prism files\\{hospital}\\Error Files\\'
-VISIT_FILE_DIR = 'C:\\Users\\fancy\\OneDrive\\Documents\\Pipeline learn\\Prism files\\{hospital}\\Visits\\'
-END_RESULT_FILE_DIR = 'C:\\Users\\fancy\\OneDrive\\Documents\\Pipeline learn\\Prism files\\{hospital}\\End Result Files\\'
+HTML_FILE_DIR = '//c/Users/fancy/OneDrive/Documents/Pipeline-learn/Prism-files/{hospital}/Html Files/'
+ERROR_FILE_DIR = '//c/Users/fancy/OneDrive/Documents/Pipeline-learn/Prism-files/{hospital}/Error Files/'
+VISIT_FILE_DIR = '//c/Users/fancy/OneDrive/Documents/Pipeline-learn/Prism-files/{hospital}/Visits/'
+END_RESULT_FILE_DIR = '//c/Users/fancy/OneDrive/Documents/Pipeline-learn/Prism-files/{hospital}/End Result Files/'
 
 VISIT_COLUMNS = {
     'interfaith' : ['AccountNumber', 'Admit/ServiceDt', 'Discharge/ServiceDt', 'PrimaryInsuranceDesc', 'AccountType', 'BarStatus'],

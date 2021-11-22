@@ -1,5 +1,6 @@
 import unittest
 import os
+from pathlib import Path
 from dataRetrieval import retrieveDatafromHtmlFiles, retrieveDatafromErrorFiles, retrieveDatafromVisitFiles
 from config import HTML_FILE_DIR, ERROR_FILE_DIR, VISIT_FILE_DIR
 
@@ -12,6 +13,8 @@ class TestRetrieval(unittest.TestCase):
         cls.HtmlFilepath = HTML_FILE_DIR.format(hospital=cls.schema)
         cls.ErrorFilepath = ERROR_FILE_DIR.format(hospital=cls.schema)
         cls.VisitFilepath = VISIT_FILE_DIR.format(hospital=cls.schema)
+        print("File      Path:", Path(__file__).absolute())
+        print("Directory Path:", Path().absolute()) # Directory of current working directory, not __file__  
 
     @classmethod
     def tearDownClass(cls):
@@ -23,18 +26,18 @@ class TestRetrieval(unittest.TestCase):
 
     def testRetrieveDatafromHtmlFiles(self):
         retrieveDatafromHtmlFiles(schema=self.schema)
-        self.assertTrue(os.listdir(self.HtmlFilepath + "Processed\\"))
-        self.assertFalse(os.listdir(self.HtmlFilepath + "Errored\\"))
+        self.assertTrue(os.listdir(self.HtmlFilepath + "Processed/"))
+        self.assertFalse(os.listdir(self.HtmlFilepath + "Errored/"))
 
     def testRetrieveDatafromErrorFiles(self):
         retrieveDatafromErrorFiles(schema=self.schema)
-        self.assertTrue(os.listdir(self.ErrorFilepath + "Processed\\"))
-        self.assertFalse(os.listdir(self.ErrorFilepath + "Errored\\"))
+        self.assertTrue(os.listdir(self.ErrorFilepath + "Processed/"))
+        self.assertFalse(os.listdir(self.ErrorFilepath + "Errored/"))
 
     def testRetrieveDatafromVisitFiles(self):
         retrieveDatafromVisitFiles(schema=self.schema)
-        self.assertTrue(os.listdir(self.VisitFilepath + "Processed\\"))
-        self.assertFalse(os.listdir(self.VisitFilepath + "Errored\\"))
+        self.assertTrue(os.listdir(self.VisitFilepath + "Processed/"))
+        self.assertFalse(os.listdir(self.VisitFilepath + "Errored/"))
 
 
 if __name__ == '__main__':
