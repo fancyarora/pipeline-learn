@@ -12,9 +12,7 @@ class TestRetrieval(unittest.TestCase):
         cls.schema = 'Test'
         cls.HtmlFilepath = HTML_FILE_DIR.format(hospital=cls.schema)
         cls.ErrorFilepath = ERROR_FILE_DIR.format(hospital=cls.schema)
-        cls.VisitFilepath = VISIT_FILE_DIR.format(hospital=cls.schema)
-        print("File      Path:", Path(__file__).absolute())
-        print("Directory Path:", Path().absolute()) # Directory of current working directory, not __file__  
+        cls.VisitFilepath = VISIT_FILE_DIR.format(hospital=cls.schema) 
 
     @classmethod
     def tearDownClass(cls):
