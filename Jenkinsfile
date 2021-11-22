@@ -31,5 +31,24 @@ pipeline {
                  }
              }
          }
+         stage('Deploy'){
+             agent any
+             environment{
+                 VOLUME = '$(pwd)/sources:/src'
+                 IMAGE = 'cdrx/pyinstaller-linux:python3'
+             }
+             steps{
+                 dir(path: env.BUILD_ID) {
+                     unstash(name: 'compiled-results')
+                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F prism.py'"
+                 }
+             }
+             post{
+                 success{
+                     archiveArtifacts "${env.BUILD_ID}/sources/dist/prism"
+                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
+                 }
+             }
+         }
     }
 }
