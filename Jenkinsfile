@@ -4,7 +4,7 @@ pipeline {
          stage('Build') {
              agent { 
                  docker {
-                     image 'python:3.7.2'
+                     image 'python:3.8-slim-buster'
                  }
              }
              steps {
@@ -16,7 +16,7 @@ pipeline {
          stage('test') {
              agent {
                  docker {
-                     image 'python:3.7.2'
+                     image 'python:3.8-slim-buster'
                      args '-u root'
                  }
              }
