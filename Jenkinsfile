@@ -41,7 +41,7 @@ pipeline {
              steps{
                  dir(path: env.BUILD_ID) {
                      unstash(name: 'compiled-results')
-                     sh "pyinstaller -F prism.py"
+                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F prism.py'"
 
                      sh "docker build -t localhost:5000/prism ."
 
