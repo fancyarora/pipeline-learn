@@ -3,7 +3,7 @@
 
 FROM python:3.8-slim-buster
 
-VOLUME "%HOMEDRIVE%%HOMEPATH%":/home
+WORKDIR /
 
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt

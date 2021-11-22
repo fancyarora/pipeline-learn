@@ -49,14 +49,13 @@ def retrieveDatafromHtmlFiles(schema="public"):
                 print("Retreiving data from file: {}".format(fileName))
                 try:
                     records = parseRecordsFromHtmlFile(filePath, fileName)
-                    print(os.getcwd())
                     if records:
-                        os.rename(filePath + fileName, filePath + "Processed\\" + fileName)
+                        os.rename(filePath + fileName, filePath + "Processed/" + fileName)
                         return True
                 except Exception as e:
                     print("Parsing Failed for {}".format(fileName))
                     print(e)
-                    os.rename(filePath + fileName, filePath + "Errored\\" + fileName)
+                    os.rename(filePath + fileName, filePath + "Errored/" + fileName)
                     return False
 
 
@@ -71,13 +70,12 @@ def retrieveDatafromErrorFiles(schema="public"):
                 try:
                     records = parseRecordsFromErrorFile(filePath, fileName)
                     if records:
-                        os.rename(filePath + fileName, filePath + "Processed\\" + fileName)
-                        print(os.getcwd())
+                        os.rename(filePath + fileName, filePath + "Processed/" + fileName)
                         return True
                 except Exception as e:
                     print("Parsing Failed for {}".format(fileName))
                     print(e)
-                    os.rename(filePath + fileName, filePath + "Errored\\" + fileName)
+                    os.rename(filePath + fileName, filePath + "Errored/" + fileName)
                     return False
 
 
@@ -93,12 +91,12 @@ def retrieveDatafromVisitFiles(schema="public"):
                     records = parseRecordsFromVisitFile(filePath, fileName, hospital=schema)
                     if records:
                         print(os.getcwd())
-                        os.rename(filePath + fileName, filePath + "Processed\\" + fileName)
+                        os.rename(filePath + fileName, filePath + "Processed/" + fileName)
                         return True
                 except Exception as e:
                     print("Parsing Failed for {}".format(fileName))
                     print(e)
-                    os.rename(filePath + fileName, filePath + "Errored\\" + fileName)
+                    os.rename(filePath + fileName, filePath + "Errored/" + fileName)
                     return False
 
 

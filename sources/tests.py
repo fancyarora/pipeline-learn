@@ -22,7 +22,7 @@ class TestRetrieval(unittest.TestCase):
         for filePath in filePaths:
             for _, _, files in os.walk(filePath):
                 for fileName in files:
-                    os.rename(filePath + "Processed\\" + fileName, filePath + fileName)
+                    os.rename(filePath + "Processed/" + fileName, filePath + fileName)
 
     def testRetrieveDatafromHtmlFiles(self):
         retrieveDatafromHtmlFiles(schema=self.schema)
